@@ -2,6 +2,7 @@ package edu.ntnu.idatt2003.eliashaugsbakk.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -33,8 +34,9 @@ public class DeckOfCardsTest {
     HandOfCards hand = deck.dealHand(52);
     assertEquals(52, hand.getHand().size());
     assertThrows(IllegalArgumentException.class, () -> deck.dealHand(1));
-    deck.resetDeck();
-    deck.resetDeck();
+    deck.shuffle();
     hand =  deck.dealHand(52);
   }
+
+
 }
