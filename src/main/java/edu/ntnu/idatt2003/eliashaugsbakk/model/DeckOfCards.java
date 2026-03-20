@@ -20,6 +20,9 @@ public class DeckOfCards {
        fullDeckOfCards.add(new PlayingCard(suit, i + 1));
      }
    }
+   if (fullDeckOfCards.size() > 52) {
+     throw new RuntimeException("Cards cannot be greater than 52");
+   }
    remainingCards.addAll(fullDeckOfCards);
   }
 
@@ -38,8 +41,21 @@ public class DeckOfCards {
     }
     return new HandOfCards(hand);
   }
-  public void resetDeck() {
+
+  /**
+   * Resets the deck of cards.
+   */
+  public void shuffle() {
     remainingCards.clear();
     remainingCards.addAll(fullDeckOfCards);
+  }
+
+  /**
+   * Returns the number of remaining cards in the deck.
+   *
+   * @return number of remaining cards
+   */
+  public int getRemainingCards() {
+    return remainingCards.size();
   }
 }
